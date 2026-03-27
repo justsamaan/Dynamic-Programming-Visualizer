@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Programming Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-cube logo-icon"></i>
+                <h2>DP Visualizer</h2>
+            </div>
+            
+            <ul class="algo-list" id="algoList">
+                <li class="algo-item active" data-algo="lcs">
+                    <i class="fa-solid fa-align-left"></i> Longest Common Subsequence
+                </li>
+                <li class="algo-item" data-algo="knapsack">
+                    <i class="fa-solid fa-briefcase"></i> 0/1 Knapsack Problem
+                </li>
+                <li class="algo-item" data-algo="mcm">
+                    <i class="fa-solid fa-table-cells"></i> Matrix Chain Multiplication
+                </li>
+                <li class="algo-item" data-algo="tsp">
+                    <i class="fa-solid fa-route"></i> Travelling Salesperson
+                </li>
+                <li class="algo-item" data-algo="bellman">
+                    <i class="fa-solid fa-project-diagram"></i> Bellman-Ford
+                </li>
+                <li class="algo-item" data-algo="floyd">
+                    <i class="fa-solid fa-network-wired"></i> Floyd-Warshall
+                </li>
+                <li class="algo-item" data-algo="assembly">
+                    <i class="fa-solid fa-conveyor-belt"></i> Assembly Line Scheduling
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>Interactive Web DP Toolkit</p>
+            </div>
+        </nav>
+
+        <!-- Main Workspace Area -->
+        <main class="workspace">
+            <!-- Header section describing the selected algo -->
+            <header class="workspace-header">
+                <h1 id="algoTitle">Longest Common Subsequence</h1>
+                <p id="algoDesc">Finds the longest subsequence present in both strings. A classic 2D Dynamic Programming problem.</p>
+            </header>
+
+            <!-- Input Controls Area -->
+            <section class="controls-panel">
+                <div class="input-group" id="inputContainer">
+                    <!-- Dynamic inputs injected here via JS -->
+                    <div class="input-row">
+                        <label>String 1:</label>
+                        <input type="text" id="lcs-s1" value="AGGTAB" />
+                    </div>
+                    <div class="input-row">
+                        <label>String 2:</label>
+                        <input type="text" id="lcs-s2" value="GXTXAYB" />
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="btnVisualize" class="btn primary"><i class="fa-solid fa-play"></i> Generate DP Table</button>
+                    <button id="btnReset" class="btn secondary"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                </div>
+            </section>
+
+            <!-- Playback Controls -->
+            <section class="playback-controls hidden" id="playbackControls">
+                <button id="btnPrev" class="btn icon-btn" disabled><i class="fa-solid fa-backward-step"></i></button>
+                <div class="step-indicator" id="stepIndicator">Step 0 / 0</div>
+                <button id="btnNext" class="btn icon-btn"><i class="fa-solid fa-forward-step"></i></button>
+                <button id="btnAutoPlay" class="btn icon-btn"><i class="fa-solid fa-play"></i> Auto</button>
+            </section>
+
+            <!-- The Visualization Canvas -->
+            <section class="visualization-canvas" id="canvas">
+                <div class="canvas-placeholder">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <p>Enter inputs and click "Generate DP Table" to begin visualization.</p>
+                </div>
+                <!-- Dynamic Tables/Graphs injected here -->
+            </section>
+            
+            <!-- Explanation Box -->
+            <section class="explanation-box hidden" id="explanationBox">
+                <h3>Current Step Explanation</h3>
+                <p id="stepExplanation">Waiting to begin...</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
